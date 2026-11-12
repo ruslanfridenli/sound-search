@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap");
+
+:root {
+  color-scheme: light;
+  font-family: "DM Sans", sans-serif;
+  color: #242621;
+  background: #f6f5f2;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --ink: #242621;
+  --muted: #777970;
+  --line: #e6e5df;
+  --green: #c8f169;
+  --paper: #fff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% 1%, rgba(232, 240, 218, .46), transparent 38rem),
+    #f6f5f2;
+}
+
+button, input { font: inherit; }
+button, a, label { -webkit-tap-highlight-color: transparent; }
+
+.page {
+  width: min(100% - 48px, 920px);
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(36, 38, 33, .08);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--ink);
+  text-decoration: none;
+  font: 800 21px "Manrope", sans-serif;
+  letter-spacing: -1.1px;
+}
+
+.brand-mark { width: 30px; height: 30px; color: var(--ink); }
+.brand-mark svg { display: block; width: 100%; height: 100%; }
+.topbar-note { display: flex; align-items: center; gap: 8px; color: #777970; font-size: 12px; }
+.live-dot { width: 7px; height: 7px; border-radius: 50%; background: #9ac946; box-shadow: 0 0 0 3px #e8f3d9; }
+
+.intro { padding: 62px 0 28px; text-align: center; }
+.eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin: 0;
+  color: #777970;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+.eyebrow-line { display: inline-block; width: 18px; height: 1px; background: #a4c76e; }
+
+h1, h2, p { margin-top: 0; }
+h1 {
+  margin: 19px 0 14px;
+  font: 800 clamp(43px, 7vw, 66px)/1.05 "Manrope", sans-serif;
+  letter-spacing: -4px;
+}
+h1 span { color: #909285; }
+.intro-copy { margin: 0; color: var(--muted); font-size: 14px; }
+
+.search-panel {
+  max-width: 680px;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #e8e7e1;
+  border-radius: 15px;
+  background: rgba(255,255,255,.88);
+  box-shadow: 0 10px 32px rgba(44, 46, 37, .045), 0 1px 2px rgba(44, 46, 37, .04);
+}
+.search-form { min-height: 76px; display: flex; align-items: center; gap: 14px; padding: 12px 13px 12px 21px; }
+.search-icon { width: 21px; height: 21px; flex: 0 0 auto; color: #8d9085; }
+.search-form input {
+  min-width: 0;
+  flex: 1;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ink);
+  font-size: 15px;
+}
+.search-form input::placeholder { color: #a0a197; }
+.search-button {
+  height: 47px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 0 19px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--ink);
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background .2s, transform .2s;
+}
+.search-button:hover { background: #3a3d34; transform: translateY(-1px); }
+.search-button:disabled { opacity: .6; cursor: wait; transform: none; }
+.search-button svg { width: 17px; height: 17px; }
+
+.upload-row {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 13px 18px 13px 20px;
+  border-top: 1px solid #efeee9;
+  background: #fbfbf9;
+  transition: background .2s;
+}
+.upload-row.is-dragging { background: #f0f8e5; }
+.upload-copy { display: flex; align-items: center; gap: 11px; }
+.upload-icon { width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid #e8e9e1; border-radius: 9px; color: #707368; background: #fff; }
+.upload-icon svg { width: 18px; height: 18px; }
+.upload-copy strong, .upload-copy small { display: block; }
+.upload-copy strong { margin-bottom: 3px; font-size: 12px; font-weight: 600; }
+.upload-copy small { color: #85877e; font-size: 11px; }
+.file-button {
+  flex: 0 0 auto;
+  padding: 9px 13px;
+  border: 1px solid #e4e4dd;
+  border-radius: 8px;
+  color: #44463f;
+  background: white;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 600;
+  transition: border-color .2s, background .2s;
+}
+.file-button:hover { border-color: #b7cf8e; background: #fcfff7; }
+.file-status { display: none; margin: 0; padding: 0 20px 13px 65px; color: #65704f; font-size: 11px; }
+.file-status:not(:empty) { display: block; }
+
+.honesty-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin: 17px auto 0;
+  color: #85877e;
+  font-size: 11px;
+  text-align: center;
+}
+.honesty-note svg { width: 15px; height: 15px; flex: 0 0 auto; color: #a1a48f; }
+
+.results-section { max-width: 780px; width: 100%; margin: 62px auto 0; }
+.results-heading { display: flex; align-items: end; justify-content: space-between; margin-bottom: 18px; }
+.results-eyebrow { justify-content: flex-start; font-size: 9px; }
+h2 { margin: 8px 0 0; font: 700 25px "Manrope", sans-serif; letter-spacing: -1px; }
+.results-count { padding-bottom: 4px; color: #888a80; font-size: 11px; }
+.search-status { margin: -5px 0 13px; color: #777970; font-size: 12px; }
+.results-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.track-card { overflow: hidden; min-width: 0; border: 1px solid #e8e7e1; border-radius: 12px; background: #fff; box-shadow: 0 4px 12px rgba(44, 46, 37, .025); }
+.artwork-wrap { position: relative; aspect-ratio: 1 / 1; background: #eeeee9; }
+.artwork { display: block; width: 100%; height: 100%; object-fit: cover; }
+.artwork-placeholder { width: 100%; height: 100%; display: grid; place-items: center; color: #a8aa9e; }
+.artwork-placeholder svg { width: 36px; height: 36px; }
+.track-info { padding: 12px 12px 13px; }
+.track-title { overflow: hidden; margin: 0 0 4px; color: #30322c; font-size: 12px; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
+.track-artist { overflow: hidden; margin: 0 0 10px; color: #83857b; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+.track-card audio { display: block; width: 100%; height: 32px; }
+.no-preview { margin: 0; color: #9a9b92; font-size: 10px; }
+.empty-state { grid-column: 1 / -1; padding: 32px; border: 1px dashed #deded5; border-radius: 12px; color: #777970; font-size: 13px; text-align: center; }
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: auto;
+  padding: 38px 0 23px;
+  color: #9a9b92;
+  font-size: 10px;
+}
+.footer a { color: #66695e; text-decoration-color: #c3c4bb; text-underline-offset: 2px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+[hidden] { display: none !important; }
+
+@media (max-width: 620px) {
+  .page { width: min(100% - 32px, 480px); }
+  .topbar { height: 68px; }
+  .intro { padding: 52px 0 24px; }
+  h1 { letter-spacing: -2.7px; }
+  .intro-copy { max-width: 290px; margin: 0 auto; line-height: 1.6; }
+  .search-form { min-height: 68px; gap: 10px; padding: 10px 10px 10px 14px; }
+  .search-form input { font-size: 13px; }
+  .search-button { height: 44px; gap: 8px; padding: 0 13px; }
+  .upload-row { min-height: 70px; padding: 11px 12px; }
+  .upload-copy { gap: 8px; }
+  .upload-icon { width: 31px; height: 31px; }
+  .upload-copy small { max-width: 175px; font-size: 10px; }
+  .file-button { padding: 9px 10px; font-size: 10px; }
+  .file-status { padding: 0 12px 11px 52px; }
+  .honesty-note { align-items: flex-start; max-width: 360px; line-height: 1.5; }
+  .results-section { margin-top: 45px; }
+  .results-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .track-info { padding: 10px; }
+  .footer { padding-top: 34px; }
+}
+
+@media (max-width: 390px) {
+  .page { width: calc(100% - 24px); }
+  .topbar-note { font-size: 10px; }
+  .search-button { gap: 5px; padding: 0 10px; }
+  .upload-copy small { max-width: 143px; }
+}
